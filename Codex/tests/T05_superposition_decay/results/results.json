@@ -1,1 +1,10 @@
-{}
+{
+  "test_id": "T05_superposition_decay",
+  "script": "Codex/tests/T05_superposition_decay/test.py",
+  "returncode": 0,
+  "implemented": false,
+  "status": "SCAFFOLD_ONLY",
+  "duration_s": 0.030528,
+  "stdout": "",
+  "stderr": ""
+}

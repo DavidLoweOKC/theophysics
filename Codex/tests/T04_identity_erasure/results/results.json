@@ -1,1 +1,10 @@
-{}
+{
+  "test_id": "T04_identity_erasure",
+  "script": "Codex/tests/T04_identity_erasure/test.py",
+  "returncode": 0,
+  "implemented": false,
+  "status": "SCAFFOLD_ONLY",
+  "duration_s": 0.029568,
+  "stdout": "",
+  "stderr": ""
+}

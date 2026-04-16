@@ -1,3 +1,6 @@
-# Test 6 Results
+# T06_network_fragmentation Results
 
-No run yet.
+- Status: **SCAFFOLD_ONLY**
+- Return code: `0`
+- Implemented logic present: `False`
+- Runtime: `0.030s`

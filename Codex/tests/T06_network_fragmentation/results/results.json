@@ -1,1 +1,10 @@
-{}
+{
+  "test_id": "T06_network_fragmentation",
+  "script": "Codex/tests/T06_network_fragmentation/test.py",
+  "returncode": 0,
+  "implemented": false,
+  "status": "SCAFFOLD_ONLY",
+  "duration_s": 0.029538,
+  "stdout": "",
+  "stderr": ""
+}

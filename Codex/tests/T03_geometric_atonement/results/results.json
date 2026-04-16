@@ -1,1 +1,10 @@
-{}
+{
+  "test_id": "T03_geometric_atonement",
+  "script": "Codex/tests/T03_geometric_atonement/test.py",
+  "returncode": 0,
+  "implemented": false,
+  "status": "SCAFFOLD_ONLY",
+  "duration_s": 0.030628,
+  "stdout": "",
+  "stderr": ""
+}

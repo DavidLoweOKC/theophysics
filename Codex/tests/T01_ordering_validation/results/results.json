@@ -1,1 +1,10 @@
-{}
+{
+  "test_id": "T01_ordering_validation",
+  "script": "Codex/tests/T01_ordering_validation/test.py",
+  "returncode": 0,
+  "implemented": false,
+  "status": "SCAFFOLD_ONLY",
+  "duration_s": 0.033248,
+  "stdout": "",
+  "stderr": ""
+}

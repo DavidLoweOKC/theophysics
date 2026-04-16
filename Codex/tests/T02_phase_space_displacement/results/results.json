@@ -1,1 +1,10 @@
-{}
+{
+  "test_id": "T02_phase_space_displacement",
+  "script": "Codex/tests/T02_phase_space_displacement/test.py",
+  "returncode": 0,
+  "implemented": false,
+  "status": "SCAFFOLD_ONLY",
+  "duration_s": 0.033963,
+  "stdout": "",
+  "stderr": ""
+}

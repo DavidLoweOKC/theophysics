@@ -1,3 +1,6 @@
-# Test 5 Results
+# T05_superposition_decay Results
 
-No run yet.
+- Status: **SCAFFOLD_ONLY**
+- Return code: `0`
+- Implemented logic present: `False`
+- Runtime: `0.031s`
