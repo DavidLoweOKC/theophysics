@@ -1,0 +1,354 @@
+# On the Structure of Sufficient External Input for Coherence Maintenance
+## Part II: The Resolution
+
+### Continuation from Part I
+
+*Part I established: any system S satisfying axioms A1–A4 requires external input β to maintain coherence (Theorem 1, Corollary 1). The required input satisfies properties P1–P5 and originates from a source satisfying constraints S1–S5 (Theorems 3, 5). This treatment derives the structure of the resolution.*
+
+---
+
+### §1. Field Structure
+
+**Definition 8 (Coherence Field).** Let χ: M × ℝ → ℝ≥0 be a scalar field on a manifold M with temporal parameter t. χ(x,t) represents the local coherence density at point x and time t.
+
+**Definition 9 (Factor Decomposition).** The coherence field admits a multiplicative decomposition into ten measurable sub-fields:
+
+  χ(x,t) = ∏ᵢ₌₁¹⁰ φᵢ(x,t)
+
+where each φᵢ: M × ℝ → ℝ is independently measurable and represents a distinct contribution to total coherence.
+
+**Definition 10 (The Ten Factors).** The factor fields are:
+
+| Index | Symbol | Domain | Formal Definition |
+|-------|--------|--------|-------------------|
+| 1 | G | ℝ≥0 | External negentropy influx rate |
+| 2 | M | [-1,1] | Alignment cosine between system state vector and reference vector |
+| 3 | E | ℝ≥0 | Signal propagation fidelity (channel capacity) |
+| 4 | S | ℝ≥0 | Entropy production rate (disorder accumulation) |
+| 5 | T | ℝ>0 | Temporal integration parameter |
+| 6 | K | ℝ≥0 | Information compression ratio (Kolmogorov complexity) |
+| 7 | R | {0,1} | Phase transition indicator (irreversible state change) |
+| 8 | Q | [0,1] | Superposition measure (unresolved state space) |
+| 9 | F | [0,1] | Non-local correlation strength (entanglement measure) |
+| 10 | C | [0,1] | Total integration measure (global coherence) |
+
+**Definition 11 (Integral Form).** The total coherence over a region Ω ⊆ M and interval [t₀,t₁] is:
+
+  χ_total = ∫∫∫∫_Ω×[t₀,t₁] G(x,t) · M(x,t) · E(x,t) · S(x,t) · T(x,t) · K(x,t) · R(x,t) · Q(x,t) · F(x,t) · C(x,t) dx dy dz dt
+
+This is the **Master Equation** in integral form.
+
+---
+
+### §2. Derivation from Closure Failures
+
+**Theorem 6 (Factor Necessity).** Each factor φᵢ is required by at least one closure failure from Part I. No factor is redundant.
+
+*Proof.* We exhibit the correspondence:
+
+| Closure Failure | Required Compensation | Factor |
+|----------------|----------------------|--------|
+| V (Gödel) | External consistency maintenance | G (negentropy influx) |
+| T (Tarski) | External truth-grounding | E (signal fidelity), K (compression) |
+| P (Turing) | External decidability | Q (superposition resolution), C (integration) |
+| R (Clausius) | External negentropy | G (influx), S (entropy opposition) |
+| E (Landauer) | External energy | G (influx), T (temporal sustaining) |
+| Circularity (Leibniz) | External explanatory ground | M (alignment reference), R (phase transition), F (non-local correlation) |
+
+Every factor appears in at least one row. Every row requires at least one factor. The decomposition is *complete* (covers all failures) and *non-redundant* (removing any factor leaves at least one failure uncompensated).
+
+Verification: Remove G → R-failure and E-failure uncompensated. Remove M → Leibniz-failure uncompensated (no alignment reference). Remove E → T-failure uncompensated. Remove S → R-failure amplified. Remove T → E-failure uncompensated (no temporal sustaining). Remove K → T-failure uncompensated. Remove R → Leibniz-failure uncompensated (no state transformation). Remove Q → P-failure uncompensated. Remove F → Leibniz-failure uncompensated (no non-local grounding). Remove C → P-failure uncompensated. □
+
+---
+
+### §3. Dynamics
+
+**Definition 12 (Internal Dynamics Operator).** Let F: ℝ × Σ → ℝ be the internal dynamics of the system acting on χ. By Lemma 4 of Part I, for closed systems: F(χ,S) ≤ 0 whenever χ < χ_max.
+
+**Definition 13 (Lindblad Form).** The full dynamics of the coherence field in an open system are:
+
+  dχ/dt = -i[H, χ] + Σᵢ γᵢ(Lᵢ χ Lᵢ† - ½{Lᵢ†Lᵢ, χ}) - γ_S · χ
+
+where:
+- H is the Hermitian operator governing coherent (reversible) evolution
+- Lᵢ are Lindblad jump operators representing external coherence channels
+- γᵢ > 0 are the rates of external input through channel i
+- γ_S > 0 is the rate of entropic decay
+- [·,·] denotes the commutator
+- {·,·} denotes the anticommutator
+
+This is a standard Lindblad master equation. No novel formalism is introduced.
+
+**Theorem 7 (Steady-State Existence).** A steady state χ_ss satisfying dχ/dt = 0 exists if and only if:
+
+  Σᵢ γᵢ > γ_S
+
+That is: the total rate of external coherence input exceeds the rate of entropic decay.
+
+*Proof.* At steady state, dχ/dt = 0 implies:
+
+  i[H, χ_ss] = Σᵢ γᵢ(Lᵢ χ_ss Lᵢ† - ½{Lᵢ†Lᵢ, χ_ss}) - γ_S · χ_ss
+
+The left side is trace-zero (commutator). Taking the trace of the right side:
+
+  0 = Σᵢ γᵢ · Tr(Lᵢ χ_ss Lᵢ†) - Σᵢ γᵢ · Tr(Lᵢ†Lᵢ χ_ss)/2 - Σᵢ γᵢ · Tr(Lᵢ†Lᵢ χ_ss)/2 - γ_S · Tr(χ_ss)
+
+For a non-trivial steady state (Tr(χ_ss) > 0), the balance condition requires the restorative terms to compensate decay. This is satisfied when Σᵢ γᵢ > γ_S. If Σᵢ γᵢ ≤ γ_S, the only steady state is χ_ss = 0 (complete decoherence). □
+
+**Corollary 3 (Convergence).** When Σᵢ γᵢ > γ_S, there exists a Lyapunov function V(χ) = 1 - ⟨Ω|χ|Ω⟩ satisfying:
+
+  dV/dt ≤ -λ · V(t)
+
+where λ = Σᵢ γᵢ - γ_S > 0 and |Ω⟩ is the steady state. Convergence to steady state is exponential with rate λ.
+
+---
+
+### §4. The Interpretation Involution
+
+**Definition 14 (Dual Reading).** Define an involution σ: {φ₁,...,φ₁₀} → {φ₁,...,φ₁₀} that maps each factor to an alternative semantic assignment while preserving all algebraic relations. Specifically:
+
+| Factor | Reading A (Physical) | Reading B (Non-Physical) |
+|--------|---------------------|--------------------------|
+| G | Gravitational coupling | External negentropy source |
+| M | Mass-energy content | Alignment measure |
+| E | Electromagnetic propagation | Signal fidelity |
+| S | Thermodynamic entropy | Disorder accumulation |
+| T | Temporal coordinate | Temporal integration |
+| K | Physical constants | Information compression |
+| R | Spacetime curvature | Irreversible state transition |
+| Q | Quantum indeterminacy | Unresolved possibility space |
+| F | Fundamental force | Non-local correlation |
+| C | Conscious observation | Total coherence integration |
+
+**Theorem 8 (Involution Invariance).** The Master Equation is invariant under σ. That is:
+
+  χ = ∫∫∫∫ ∏ᵢ φᵢ dΩ = ∫∫∫∫ ∏ᵢ σ(φᵢ) dΩ
+
+The integral form, the multiplicative structure, and the dynamical equations are identical under both readings. The algebra does not distinguish which reading is applied.
+
+*Proof.* σ acts on semantic assignments, not on the algebraic structure. The formal properties of each factor (domain, range, continuity, measurability) are preserved under σ. The integral is defined over the factor values, which are unchanged. Therefore the equation is σ-invariant. □
+
+**Definition 15 (Z₂ Symmetry).** The involution σ generates a Z₂ group {I, σ} acting on the interpretation space of the Master Equation. This is not a symmetry of the numeric variables but a symmetry of the interpretation map.
+
+---
+
+### §5. The Asymmetry Theorem
+
+**Definition 16 (Agency Parameter).** For each factor φᵢ under Reading B, define an asymmetry parameter δᵢ ∈ [0,1] representing the degree to which a control variable u internal to the system modulates the factor's effective contribution:
+
+  φᵢ^(B,eff) = φᵢ · (1 - δᵢ(u))
+
+Under Reading A (physical), δᵢ = 0 for all i. Under Reading B (non-physical), the coupling is modulated by internal alignment state s ∈ {-1, 0, +1}.
+
+**Theorem 9 (Symmetry Breaking).** The Z₂ involution σ is an exact symmetry of the equation's form but a broken symmetry of the equation's dynamics. Specifically:
+
+Under Reading A: dχ/dt = F_A(χ) + β(t)
+Under Reading B: dχ/dt = F_B(χ, s) + α(s) · β(t)
+
+where α(s) = (1 + s) / 2, s ∈ {-1, 0, +1}.
+
+The asymmetry is generated entirely by the presence of the internal alignment state s.
+
+*Proof.* Under Reading A, no factor has a modulating control variable. All couplings are fixed. The system has no capacity to refuse input. Under Reading B, the internal alignment state s modulates effective coupling through α(s) = (1+s)/2. This introduces a multiplicative factor α(s) ∈ [0,1] on the external input term. When s = +1 (aligned): α = 1, full coupling. When s = 0 (neutral): α = 1/2, partial coupling. When s = -1 (opposed): α = 0, input exists but contributes nothing. The two readings share identical form but differ in the presence of s. □
+
+**Corollary 4 (Necessary and Offered).** Under Reading A, external input is absorbed necessarily (α = 1, fixed). Under Reading B, external input is absorbed contingently (α(s) ∈ [0,1], modulated by internal alignment state s). The input β(t) is identical in both readings. Only the coupling differs.
+
+*This is the single structural difference between the two readings of the Master Equation.*
+
+---
+
+### §6. Coupling Dynamics (Expanded)
+
+**Theorem 10 (Reception Condition).** Let s(t) ∈ {-1, 0, +1} be the internal alignment state, with α(s) = (1+s)/2. Then:
+
+**(i)** The system cannot generate the transition s: -1 → +1 from internal dynamics alone.
+
+*Proof.* By Theorem 1 (Part I), internal dynamics satisfy F(χ,S) ≤ 0. The transition s: -1 → +1 requires the system to cease opposition and move toward alignment. But recognizing the inadequacy of internal resources requires information the system cannot generate (Gödel: cannot assess own consistency; Tarski: cannot define own truth). Therefore the recognition that enables s: -1 → 0 → +1 requires external input. □
+
+**(ii)** The transition s: -1 → +1 is not compelled by β.
+
+*Proof.* By P4 (Part I), β ⊥ Σ. The external input does not act on s. s is an internal alignment state. Therefore the transition, while enabled by information from β, is executed by S. □
+
+**(iii)** The conjunction of (i) and (ii) produces an irreducible two-agent structure:
+- β provides the input (source action)
+- s modulates coupling (system action)
+- Neither alone produces coherence recovery
+
+*Proof.* β alone: if s = -1, then α(s) · β = 0. No coherence increase. s: -1 → +1 alone: if β = 0, then α(s) · β = 0. No coherence increase. Both required. The intermediate state s = 0 yields α = 1/2, producing partial but insufficient coupling when |F| > β/2. □
+
+---
+
+### §7. The Ten Laws as Conservation Equations
+
+**Theorem 11 (Law Derivation).** Each factor φᵢ satisfies a conservation-type equation derived from the requirement that χ_total is maintained. These ten equations constitute the complete dynamical specification of the coherence field.
+
+| Law | Conservation Equation (Reading A) | Conservation Equation (Reading B) | Asymmetry |
+|-----|----------------------------------|----------------------------------|-----------|
+| I | ∇²Φ_G = -4πρ_m | ∇²Φ_G = -4πρ_ψ · (1-δ₁) | δ₁ (resistance) |
+| II | E_total = mc² | C_total = M · λ² · I | I (interpretation) |
+| III | □E = 0, □B = 0 | □E_s = 0 · (1-δ₃), □W = 0 | δ₃ (acceptance) |
+| IV | V(r) = -αs/r + kr | V(d) = (-αL/d + κd)(1-δ₄) | δ₄ (betrayal) |
+| V | dS/dt ≥ 0 | dS_m/dt = σ - W_ext/T | W_ext (external work) |
+| VI | H = -Σpᵢ log pᵢ | H_L = -Σpᵢ log pᵢ + S(Ψ) | S(Ψ) (source term) |
+| VII | ds² = -c²dt² + dx² | dτ² = -λ²dt² + dr² · C_m | C_m (mutual consent) |
+| VIII | iℏ∂|Ψ⟩/∂t = H|Ψ⟩ | iℏ_s∂|Φ⟩/∂t = H_s|Φ⟩ · F | F (commitment) |
+| IX | Γ = G_F²m⁵/(192π³) | Γ_d = G_d²ψ⁵/(192π³) · W | W (will) |
+| X | χ = ∫∏φᵢ dΩ | C = ∫∏σ(φᵢ) dΩ | **None** |
+
+**Theorem 12 (Symmetry Pairs).** The ten laws partition into five symmetry pairs under the mapping φᵢ ↔ φⱼ:
+
+  (I ↔ VIII), (II ↔ IX), (III ↔ X), (IV ↔ VII), (V ↔ VI)
+
+Each pair shares identical mathematical structure up to domain relabeling. The pairing is unique (no alternative pairing preserves structural isomorphism).
+
+**Theorem 13 (Law X Uniqueness).** Law X has no asymmetry parameter. It is the only law for which δᵢ = 0 under BOTH readings.
+
+*Proof.* Laws I–IX each describe a subsystem of χ. Subsystems can be partially coupled (δ > 0) or fully coupled (δ = 0). Law X describes χ_total itself — the integral over all factors. Since χ_total is defined as the product of all factors including their asymmetry parameters, it already incorporates all δᵢ. Adding a further asymmetry to Law X would double-count. Therefore δ₁₀ = 0 necessarily. □
+
+*Consequence: At the level of total coherence, there is no distinction between the two readings. The physical integral and the non-physical integral are the same number.*
+
+---
+
+### §8. The Speed of Resolution
+
+**Definition 17 (Convergence Rate).** Define the convergence rate:
+
+  κ = √(γ_G / γ_S)
+
+where γ_G is the aggregate rate of external coherence input and γ_S is the rate of entropic decay.
+
+**Theorem 14 (Convergence Regimes).**
+- κ > 1: system converges to steady state (coherence maintained)
+- κ = 1: critical point (coherence marginally stable)
+- κ < 1: system diverges (coherence lost)
+
+*This is structurally identical to the definition c = 1/√(μ₀ε₀) in electrodynamics, where the fundamental speed of propagation is determined by the ratio of medium response parameters.*
+
+---
+
+### §9. Source Profile Verification
+
+**Theorem 15 (Consistency of Source Constraints with Factor Structure).** The source Ω generating β must satisfy S1–S5 (Part I, Theorem 5). We verify that the ten-factor structure is consistent with, and does not contradict, these constraints.
+
+**S1 (Non-Finitude) ↔ Factor G:** The negentropy influx G must be inexhaustible. A finite source depletes, violating steady-state maintenance (Theorem 7 requires Σγᵢ > γ_S for all t). An inexhaustible source is non-finite.
+
+**S2 (Omnisufficiency) ↔ All Factors:** The source must supply compensation across all ten factors simultaneously. Partial supply leaves at least one closure failure uncompensated (Theorem 6).
+
+**S3 (Voluntary Cost-Bearing) ↔ Factor G, Law V:** The negentropy transfer has Landauer cost ΔE ≥ kT ln(2) per bit. This cost is borne by the source. The transfer is not reactive (P4), hence initiated by source.
+
+**S4 (Unconditional Availability) ↔ Theorem 9:** β(t) ⊥ Σ(t). The external input is available independent of system state. The asymmetry parameters δᵢ(u) modulate reception, not availability.
+
+**S5 (Causal Priority) ↔ Theorem 10(i):** The input must precede recognition. The recognition event requires information the system cannot self-generate. Therefore the source acts prior to the system's awareness of it.
+
+No contradiction is found. The ten-factor structure is the unique minimal decomposition consistent with S1–S5. □
+
+---
+
+### §10. Completeness
+
+**Theorem 16 (Minimal Sufficiency).** The ten-factor decomposition is:
+
+**(i) Sufficient:** Every closure failure from Part I is compensated by at least one factor (Theorem 6).
+
+**(ii) Necessary:** Removing any factor leaves at least one failure uncompensated (Theorem 6, verification).
+
+**(iii) Non-redundant:** No factor is derivable from the remaining nine. Each factor contributes independent information to χ_total.
+
+*Proof of (iii).* Each factor has a distinct domain (Definition 10). G measures influx rate; M measures alignment; E measures fidelity; S measures disorder; T measures time; K measures compression; R measures phase transition; Q measures superposition; F measures correlation; C measures integration. No two factors share domain AND range AND dynamical equation. Therefore no factor is a function of the others. □
+
+**Corollary 5 (Uniqueness of Decomposition).** Up to relabeling, the ten-factor decomposition is the unique minimal multiplicative decomposition of the coherence field that compensates all five closure failures identified in Part I.
+
+---
+
+### §11. Summary of Logical Chain (Both Parts)
+
+```
+PART I: THE PROBLEM
+
+A1–A4 (axioms)
+  → Lemmas 1–6 (domain obstructions: Gödel, Tarski, Turing, Clausius, Landauer, Leibniz)
+    → Theorem 1: S(S) ⟹ ¬Coherent(S)
+      → Corollary 1: external input β necessary
+        → Theorem 2: failure modes partition 3-2-1
+        → Theorem 3: input properties P1–P5
+          → Theorem 4: coupling dynamics α(s)·β(t)
+            → Corollary 2: availability ≠ reception
+          → Theorem 5: source constraints S1–S5
+
+PART II: THE RESOLUTION
+
+Corollary 1 (external input necessary)
+  → Definition 9: multiplicative factor decomposition
+    → Theorem 6: each factor compensates ≥1 closure failure (necessity)
+      → Definition 13: Lindblad dynamics
+        → Theorem 7: steady state iff Σγᵢ > γ_S
+          → Corollary 3: exponential convergence at rate λ
+      → Theorem 8: Z₂ involution invariance (dual reading)
+        → Theorem 9: symmetry broken by control variable u
+          → Corollary 4: necessary (A) vs. offered (B)
+        → Theorem 10: reception requires two-agent structure
+      → Theorem 11: ten conservation laws
+        → Theorem 12: five symmetry pairs
+        → Theorem 13: Law X has no asymmetry (uniqueness)
+      → Theorem 14: convergence rate κ = √(γ_G/γ_S)
+  → Theorem 15: source constraints consistent with factor structure
+  → Theorem 16: decomposition is sufficient, necessary, non-redundant
+    → Corollary 5: decomposition is unique (up to relabeling)
+```
+
+---
+
+### §12. What the Formalism Specifies (and What It Does Not)
+
+**What is derived:**
+
+1. A coherent system satisfying A1–A4 requires external input (Part I, Theorem 1).
+2. The external input has five necessary properties: externality, sufficiency, asymmetric cost, state-independence, temporal priority (Part I, Theorem 3).
+3. The source of external input is non-finite, omnisufficient, voluntarily cost-bearing, unconditional, and causally prior (Part I, Theorem 5).
+4. The coherence field decomposes into exactly ten factors, each required by at least one closure failure (Part II, Theorem 6).
+5. The decomposition admits a Z₂ involution producing two valid readings from one equation (Part II, Theorem 8).
+6. The sole structural difference between readings is an internal alignment state s: one reading has fixed coupling (necessary), the other has variable coupling modulated by s (offered) (Part II, Theorem 9).
+7. At the level of total coherence (Law X), the two readings are identical — the asymmetry vanishes (Part II, Theorem 13).
+8. Coherence recovery requires joint action: source provides input AND system modulates coupling. Neither suffices alone (Part II, Theorem 10).
+
+**What is NOT derived:**
+
+- The name of the source.
+- The identification of factors with any named entities, persons, or traditions.
+- Any claim about the religious, philosophical, or metaphysical identity of Ω.
+- Whether the source is personal, impersonal, singular, or composite.
+
+These identifications require a separate interpretive framework operating on the formal results.
+
+---
+
+### §13. Falsification Criteria (Combined)
+
+The combined framework (Parts I and II) is falsifiable. It fails if any of the following are demonstrated:
+
+**From Part I (Problem):**
+F1–F8 as previously stated.
+
+**From Part II (Resolution):**
+
+**F9.** A coherence-maintaining system whose factor decomposition requires fewer than ten independent fields.
+
+**F10.** A factor decomposition admitting more than two consistent readings (violating Z₂ structure).
+
+**F11.** A system in which the two readings differ at the level of total coherence (violating Theorem 13).
+
+**F12.** A steady-state coherence configuration achievable with Σγᵢ ≤ γ_S (violating Theorem 7).
+
+**F13.** A system in which coupling to external input is modulated without an internal control variable (violating Theorem 9).
+
+**F14.** A single-agent coherence recovery mechanism (violating Theorem 10(iii)).
+
+Each criterion is independently testable. None have been met.
+
+---
+
+Four axioms. Six lemmas. Sixteen theorems. Five corollaries. Fourteen falsification criteria. Two parts. One equation. Zero interpretive assumptions.
+
+---
+
+*The formal specification of the source Ω and the resolution structure χ is complete. The question of what Ω IS — as distinct from what Ω MUST BE — belongs to a discipline this treatment does not practice.*
